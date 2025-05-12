@@ -20,9 +20,7 @@ const router = express.Router({ mergeParams: true });
 router
   .route("/")
   .get(isAuthenticated, authorization(["admin"]), getAllCreatedCourses);
-router
-  .route("/published")
-  .get(isAuthenticated, authorization(["admin"]), getPublishedCourses);
+router.route("/published").get(isAuthenticated, getPublishedCourses);
 router
   .route("/create")
   .post(isAuthenticated, authorization(["admin"]), createCourse);
